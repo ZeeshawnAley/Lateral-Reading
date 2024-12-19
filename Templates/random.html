@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Random Article</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        h1 {
+            margin-bottom: 20px;
+            font-size: 2rem;
+            text-align: center;
+        }
+        p {
+            max-width: 700px;
+            text-align: justify;
+            margin-bottom: 20px;
+            font-size: 1rem;
+            padding: 10px;
+            background-color: #ffffff;
+            border-radius: 5px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            width: 100%;
+            max-width: 700px;
+            border: 2px solid #333;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 20px;
+            justify-content: center;
+            align-items: center;
+        }
+        button {
+            padding: 10px;
+            font-size: 1rem;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            background-color: #007bff;
+            color: white;
+            transition: background-color 0.3s;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    {% include 'navbar.html' %}
+
+    <h1><br><br><br><br>Random Article</h1>
+    
+    <form id="articleForm" method="post" action="/run_script1">
+        <input type="hidden" name="article" value="{{ article }}">
+        <p style="text-align: center; max-width: 100%;">{{ article }}</p>
+    </form>
+
+    <div style="display: flex; gap: 30px; justify-content: flex-start; margin-left: 1px;">
+        <button type="button" onclick="submitForm()">Generate Questions</button>
+    </div>
+
+    <script>
+        function submitForm() {
+            // Manually submit the form for generating questions
+            document.getElementById("articleForm").submit();
+        }
+    </script>
+</body>
+</html>
